@@ -48,7 +48,7 @@ function createNewLine(state, title, taskId = generateTaskId(), focus = false) {
         saveData();
     });
 
-    if (canvas.childElementCount < 13) {
+    if (canvas.childElementCount /*< 13*/) {
         canvas.appendChild(newTask);
 
         if (focus) {
