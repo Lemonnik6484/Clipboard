@@ -209,6 +209,7 @@ body{
     font-size: 20px;
     color: black;
     border: none;
+    background-color: invisible;
     width: 100%;
     box-sizing: border-box;
     resize: none;
