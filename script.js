@@ -7,6 +7,7 @@ taskBase.classList.add("task");
 
 function loadData() {
     let savedData = localStorage.getItem('data');
+
     if (savedData) {
         data = JSON.parse(savedData);
         Object.keys(data.page1).forEach((taskId) => {
@@ -48,7 +49,7 @@ function createNewLine(state, title, taskId = generateTaskId(), focus = false) {
         saveData();
     });
 
-    if (canvas.childElementCount /*< 13*/) {
+    if (/*canvas.childElementCount < 13*/true) {
         canvas.appendChild(newTask);
 
         if (focus) {
@@ -86,7 +87,7 @@ function deleteTask(taskId) {
     const canvas = document.getElementById("canvas");
 
     if (Object.keys(data.page1).length <= 1) {
-        return; // Если это последний таск, ничего не делаем
+        return;
     }
 
     if (taskElement) {
@@ -99,7 +100,6 @@ function deleteTask(taskId) {
     delete data.page1[taskId];
     saveData();
 
-    // Переход фокуса
     if (taskIndex > 0) {
         const previousTaskId = remainingTasks[taskIndex - 1];
         const previousTaskElement = document.querySelector(`[data-task-id="${previousTaskId}"] textarea`);
@@ -108,8 +108,7 @@ function deleteTask(taskId) {
             previousTaskElement.setSelectionRange(previousTaskElement.value.length, previousTaskElement.value.length);
         }
     } else if (taskIndex === 0 && remainingTasks.length > 1) {
-        // Если удален самый первый таск, фокусируемся на новом первом таске
-        const newFirstTaskId = remainingTasks[1]; // Берем ID нового первого таска
+        const newFirstTaskId = remainingTasks[1];
         const newFirstTaskElement = document.querySelector(`[data-task-id="${newFirstTaskId}"] textarea`);
         if (newFirstTaskElement) {
             newFirstTaskElement.focus();
