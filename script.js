@@ -56,6 +56,7 @@ function createNewLine(state, title, taskId = generateTaskId(), focus = false) {
             textarea.focus();
         }
     }
+    saveData();
 }
 
 function autoResizeTextarea() {
@@ -77,6 +78,7 @@ document.addEventListener('keydown', function(event) {
         const textarea = document.activeElement;
         if (!textarea.value) {
             const taskId = textarea.parentElement.dataset.taskId;
+            event.preventDefault();
             deleteTask(taskId);
         }
     }
