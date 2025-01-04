@@ -1,0 +1,20 @@
+{
+  "name": "Clipboard",
+  "short_name": "Clipboard",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffaee",
+  "theme_color": "#9eb8fa",
+  "icons": [
+    {
+      "src": "./clipboard_x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./clipboard_x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

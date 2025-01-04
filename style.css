@@ -227,3 +227,7 @@ body{
 .title:focus {
     outline: none;
 }
+
+textarea {
+    background-color: #fffaee;
+}
